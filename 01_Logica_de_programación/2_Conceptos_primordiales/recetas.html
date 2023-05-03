@@ -1,0 +1,31 @@
+<meta charset="UTF-8">
+
+<h1>Recetas</h1>
+
+<script>
+
+    var ingredientes = [];
+    var cantidad = parseInt(prompt("¿Cuántos ingredientes vas a añadir?"));
+    var contador = 1;
+
+    while( contador <= cantidad) {
+        var ingrediente = prompt("Informe el ingrediente " + contador);
+        console.log(ingrediente);
+        var ingresado = false;
+        
+        for(var posicion = 0; posicion < ingredientes.length; posicion++) {
+                    if(ingrediente == ingredientes[posicion]){
+                        ingresado = true;
+                        alert( ingrediente + " ya ha sido registrado anteriormente. Capture otro.")
+                        break;
+                    }
+                }
+                if(ingresado == false){
+                    ingredientes.push(ingrediente);
+                    contador++;
+                }
+    }
+
+    console.log(ingredientes);
+
+</script>

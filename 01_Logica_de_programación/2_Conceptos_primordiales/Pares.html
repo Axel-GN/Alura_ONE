@@ -1,0 +1,27 @@
+<meta charset="UTF-8">
+
+<h1>PROGRAMA-Imprimir Pares</h1>
+
+<script>
+    function SaltarLinea(){
+        document.write("<br><br>");
+    }
+
+    function imprimir(frase){
+        document.write(frase);
+        SaltarLinea();
+    }
+
+    var i = 1;
+
+    while(i <= 100){
+        if ((i %2 ) === 0){
+            imprimir(i)
+        }
+        i++
+    }
+
+    imprimir("FIN")
+
+    
+</script>

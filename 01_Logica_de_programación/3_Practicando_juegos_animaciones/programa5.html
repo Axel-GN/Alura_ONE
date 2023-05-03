@@ -1,0 +1,64 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+    
+    var pantalla = document.querySelector("canvas");
+    var pincel = pantalla.getContext("2d");
+    pincel.fillStyle = 'lightgrey'; 
+    pincel.fillRect(0,0,600,400);
+
+    var r = 10;
+    var xAleatorio;//las convetimos a var globales para poder
+    var yAleatorio;// usarlas en disitintas funciones
+
+
+    function disenharCir(x,y,r,color){
+        pincel.fillStyle = color;
+        pincel.beginPath();
+        pincel.arc(x,y,r,0,2*Math.PI);
+        pincel.fill();
+    }
+
+    function limpiarPantalla(){
+        pincel.clearRect(0,0,600,400);
+    }
+
+    function disenharObj(x,y){
+        disenharCir(x,y,r+20,"red");
+        disenharCir(x,y,r+10,"white");
+        disenharCir(x,y,r,"red");
+    }
+    
+    function sorteaPosicion(max){
+        return Math.floor(Math.random()*max);
+    }
+    
+    var x= 0;
+
+    function actualizarPantalla() {
+        limpiarPantalla();
+        xAleatorio = sorteaPosicion(600);
+        yAleatorio = sorteaPosicion(400);
+        disenharObj(xAleatorio,yAleatorio);
+        x++;
+       
+    }
+
+    setInterval(actualizarPantalla,1000);
+
+    function disparar(evento){
+        var x = evento.pageX-pantalla.offsetLeft;
+        var y = evento.pageY-pantalla.offsetTop;
+
+        if( (x < xAleatorio + r) &&
+            (x > xAleatorio - r) &&
+            (y < yAleatorio + r) &&
+            (y > yAleatorio - r)){
+                alert("Tiro certero");
+            }
+    }
+
+    pantalla.onclick = disparar;
+    
+    
+</script>

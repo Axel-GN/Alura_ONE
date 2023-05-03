@@ -1,0 +1,39 @@
+<meta charset="UTF-8">
+
+<h1>PROGRAMA Juego de Adivinación</h1>
+
+<script>
+    function SaltarLinea(){
+        document.write("<br><br>");
+    }
+
+    function imprimir(frase){
+        document.write(frase);
+        SaltarLinea();
+    }
+
+    function sorteo(n){
+        return Math.floor(Math.random() * n);
+
+    }
+
+    //var n = parseInt(prompt("Ingrese el número máximo a considerar"))
+    var numeroSistema = sorteo(10)
+    var numeroLanzado = parseInt(prompt("Ingrese un numero del 0 a " + n));
+
+    if(numeroSistema == numeroLanzado){
+        imprimir("Usted acerto!")
+    }
+    else if (numeroSistema > numeroLanzado){
+        imprimir("Usted erró, el número era mayor a : " + numeroLanzado);
+    }
+    else{
+        imprimir("Usted erró, el número era menor a : " + numeroLanzado);
+    }
+        
+    
+
+   
+
+    
+</script>
